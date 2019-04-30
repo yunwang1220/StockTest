@@ -10,6 +10,8 @@ import java.util.Arrays;
  */
 public class StockTest {
 
+	
+	// these variables are for further use
 	static int buyPrice = 0;
 	static int index_buy = 0;
 	static int sellPrice = 0;
@@ -48,6 +50,7 @@ public class StockTest {
 				int tempProfit = max - buy;
 				if(tempProfit>=profit) {
 					profit = tempProfit;
+					// for further use
 					buyPrice = buy;
 					index_buy = i;
 				}
@@ -59,6 +62,7 @@ public class StockTest {
 
 	/**
 	 * get the index of particular price in Array
+	 * for further use.
 	 * 
 	 * @param arr search array
 	 * @param start start searching position
