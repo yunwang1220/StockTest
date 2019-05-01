@@ -40,18 +40,28 @@ public class StockTest {
 		int profit = 0;
 		int[] tempArray;
 		int max = 0;
+		int min = 0;
+		boolean boFlg = false;
 		
 		for(int i=0;i<stockPrice.length; i++) {
 			int buy = stockPrice[i];
+			// if the current value bigger than the buyPrice, no need to compare
+			if(boFlg == true && buy >= buyPrice) 
+				continue;
 			if(i+1<stockPrice.length) {
 				//compare the stock price with the max price of the left array with bigger indexes
 				tempArray = (int[])Arrays.copyOfRange(stockPrice,i+1,stockPrice.length);
 				max = Arrays.stream(tempArray).max().getAsInt();
+				min = Arrays.stream(tempArray).min().getAsInt();
 				int tempProfit = max - buy;
 				if(tempProfit>=profit) {
+					boFlg = true;
 					profit = tempProfit;
-					// for further use
+					// if the chosen buy value is the smallest, end loop
+					if(buy == min) 
+						break;
 					buyPrice = buy;
+					// for further use
 					index_buy = i;
 				}
 			}
