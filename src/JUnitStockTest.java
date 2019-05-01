@@ -39,12 +39,14 @@ class JUnitStockTest {
 		Assert.assertEquals (6, StockTest.getMaxProfit(stockPrices)); // returns 6 (buy at $5 sell at $11)
 	}
 	
+	@Test
 	void test2() {
 		int[] stockPrices = {3, 3, 3, 3, 3, 3};
 
 		Assert.assertEquals (0, StockTest.getMaxProfit(stockPrices)); // returns 0
 	}
 	
+	@Test
 	void test3() {
 		int[] stockPrices = {9, 8, 7, 6, 5, 4};
 
