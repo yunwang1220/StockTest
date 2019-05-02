@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * Stock Check
@@ -11,15 +12,24 @@ import java.util.Arrays;
 public class StockTest {
 
 	/**
+	 * main function
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// yesterday's stock prices
-		int[] stock_prices = { 2, 3, 5, 1, 9, 2, 16, 2, 5, 7, 8, 23, 67, 1, 78, 34, 2 };
+		int[] stock_prices = { 2, 3, 5, 90, 9, 2, 16, 2, 5, 7, 8, 23, 67, 1, 78, 34, 90 };
 		int max_profit = 0;
+
+		// print the start time
+		System.out.println(new Date());
 
 		// get the best profit for yesterday
 		max_profit = getMaxProfit(stock_prices);
+
+		// print the end time
+		System.out.println(new Date());
+
 		// print the best profit
 		System.out.println(max_profit);
 	}
@@ -44,7 +54,8 @@ public class StockTest {
 			if (boFlg == true && buy >= buyPrice)
 				continue;
 			if (i + 1 < stockPrice.length) {
-				// compare the stock price with the max price of the left array with bigger indexes
+				// compare the stock price with the max price of the left array with bigger
+				// indexes
 				tempArray = (int[]) Arrays.copyOfRange(stockPrice, i + 1, stockPrice.length);
 				// get min and max value from the left array
 				max = Arrays.stream(tempArray).max().getAsInt();
