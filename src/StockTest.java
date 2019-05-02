@@ -1,7 +1,4 @@
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Stock Check
@@ -22,17 +19,9 @@ public class StockTest {
 		// yesterday's stock prices
 		int[] stock_prices = { 10, 3, 5, 90, 9, 2, 16, 2, 5, 7, 8, 23, 67, 1, 78, 34, 90, 100, 3, 4, 5, 6, 1, 103 };
 		int max_profit = 0;
-		// calendar
-		Calendar cld = Calendar.getInstance();
-
-		// print the start time
-		System.out.println(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SSS").format(cld.getTime()));
 
 		// get the best profit for yesterday
 		max_profit = getMaxProfit(stock_prices);
-
-		// print the end time
-		System.out.println(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SSS").format(cld.getTime()));
 
 		// print the best profit
 		System.out.println(max_profit);
@@ -58,8 +47,7 @@ public class StockTest {
 			if (boFlg == true && buy >= buyPrice)
 				continue;
 			if (i + 1 < stockPrice.length) {
-				// compare the stock price with the max price of the left array with bigger
-				// indexes
+				// compare the stock price with the max price of the left array
 				tempArray = (int[]) Arrays.copyOfRange(stockPrice, i + 1, stockPrice.length);
 				// get min and max value from the left array
 				max = Arrays.stream(tempArray).max().getAsInt();
